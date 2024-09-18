@@ -1,5 +1,7 @@
 <div>
-  <button (click)="onSelectUser()">
+  <button [class.active]="selected" (click)="onSelectUser()">
+    <img [src]="imagePath" [alt]="user.name"/>
+    <span>{{user.name}}</span>
     <!-- Component Inputs-->
     <!-- <img [src]="imagePath" [alt]="name"/>
     <span>{{name}}</span> -->
@@ -8,8 +10,6 @@
     <!-- <img [src]="imagePath" [alt]="name"/>
     <span>{{name}}</span> -->
 
-    <img [src]="imagePath" [alt]="user.name"/>
-    <span>{{user.name}}</span>
 
     <!-- uppdating dynamic content with zone.js -->
     <!-- <img [src]="imagePath" [alt]="selectedUser.name"/>

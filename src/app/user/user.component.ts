@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output, computed, input, output, signal } from '@angular/core';
+import { User } from './user.model';
 // import { DUMMY_USERS } from '../dummy-users';
 
 // const randomIndex=Math.floor(Math.random()*DUMMY_USERS.length)
@@ -8,12 +9,7 @@ import { Component, EventEmitter, Input, Output, computed, input, output, signal
 //   avatar:String
 //   name:String
 // }
-// we can also use intrface to define type. this approach is more common in angular(with this we can only define type nothing else)
-interface User{
-  id:String
-  avatar:String
-  name:String
-}
+
 
 @Component({
   selector: 'app-user',
@@ -37,6 +33,7 @@ export class UserComponent {
   //   name:String
   // }
   @Input({required:true}) user!:User
+  @Input({required:true}) selected!:boolean
   //use @Output() to emit events
   @Output() select=new EventEmitter<String>();
 

@@ -68,6 +68,10 @@ to create object types we can either use `interface` or `type`. interface approa
 
 we can use `@if` `@else` to dynamically render content
 
+**conditionally adding css** with class bindings. here `.active` class is added to the `button` when value of `selected` is `true`
+    
+    <button [class.active]="selected" (click)="onSelectUser()">
+
 # FirstAngularApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.4.
