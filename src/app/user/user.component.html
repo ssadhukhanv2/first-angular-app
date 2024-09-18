@@ -1,6 +1,23 @@
 <div>
   <button (click)="onSelectUser()">
-    <img [src]="imagePath" [alt]="selectedUser.name"/>
+    <!-- Component Inputs-->
+    <!-- <img [src]="imagePath" [alt]="name"/>
+    <span>{{name}}</span> -->
+
+    <!-- for input signal -->
+    <img [src]="imagePath" [alt]="name"/>
+    <span>{{name}}</span>
+
+
+    <!-- uppdating dynamic content with zone.js -->
+    <!-- <img [src]="imagePath" [alt]="selectedUser.name"/>
     <span>{{selectedUser.name}}</span>
+     -->
+
+    <!-- uppdating dynamic content with signals
+    selectedUserSignal() calls the get method of the signal
+    -->
+    <!-- <img [src]="imagePath()" [alt]="selectedUserSignal().name"/>
+    <span>{{selectedUserSignal().name}}</span> -->
   </button>
 </div>

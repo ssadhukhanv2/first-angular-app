@@ -19,6 +19,26 @@ generate component *user* `ng generate component user`
 [using angular's zone.js for state detection ](https://www.udemy.com/course/the-complete-guide-to-angular-2/learn/lecture/43788534#overview) zone.js notifies angular about events,expired timers etc. this is how states work in angular and it has been around since angular 2
 
 
+**Signals:** using signals to dynamically show content. angular signal allows us to create a subscription such that if underlying object within the signal changes the value on the ui changes. This is differnt from how zone.js detects stage. In zone.js it listens to all kinds of events that could trigger state changes and angular check each zone and updates data on the ui if required. introduced in angular 16
+
+  *  signal is more efficient over using zone.js as with zone.js it needs to monitor all types of state changes across zones
+
+
+**Component Inputs**: we use the `@Input` decorator or `input` signal to accept component input
+
+    @Input() avatar!:String
+    @Input() name!:String
+
+    avatar=input.required<string>()
+    name=input.required<string>()
+
+
+**Component Outputs:** we can use `@Output` decorator or `output` function to emit events
+
+
+**union type:** @Input() name:string|undefined; //union type
+
+
 # FirstAngularApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.4.
