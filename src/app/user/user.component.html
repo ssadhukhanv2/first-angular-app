@@ -5,9 +5,11 @@
     <span>{{name}}</span> -->
 
     <!-- for input signal -->
-    <img [src]="imagePath" [alt]="name"/>
-    <span>{{name}}</span>
+    <!-- <img [src]="imagePath" [alt]="name"/>
+    <span>{{name}}</span> -->
 
+    <img [src]="imagePath" [alt]="user.name"/>
+    <span>{{user.name}}</span>
 
     <!-- uppdating dynamic content with zone.js -->
     <!-- <img [src]="imagePath" [alt]="selectedUser.name"/>

@@ -2,6 +2,18 @@ import { Component, EventEmitter, Input, Output, computed, input, output, signal
 // import { DUMMY_USERS } from '../dummy-users';
 
 // const randomIndex=Math.floor(Math.random()*DUMMY_USERS.length)
+//explicitly defining type outside
+// type User={
+//   id:String
+//   avatar:String
+//   name:String
+// }
+// we can also use intrface to define type. this approach is more common in angular(with this we can only define type nothing else)
+interface User{
+  id:String
+  avatar:String
+  name:String
+}
 
 @Component({
   selector: 'app-user',
@@ -13,10 +25,18 @@ import { Component, EventEmitter, Input, Output, computed, input, output, signal
 export class UserComponent {
 
   //we use the @Input decorator to accept component input
-  @Input({required:true}) id!:String
-  @Input({required:true}) avatar!:String
-  @Input({required:true}) name!:String
+  // @Input({required:true}) id!:String
+  // @Input({required:true}) avatar!:String
+  // @Input({required:true}) name!:String
 
+
+  // we can use object types //inline
+  // @Input({required:true}) user!:{
+  //   id:String
+  //   avatar:String
+  //   name:String
+  // }
+  @Input({required:true}) user!:User
   //use @Output() to emit events
   @Output() select=new EventEmitter<String>();
 
@@ -41,7 +61,8 @@ export class UserComponent {
   // getter method
   get imagePath(){
     // return './assets/users/'+this.selectedUser.avatar
-    return './assets/users/'+this.avatar
+    // return './assets/users/'+this.avatar
+    return './assets/users/'+this.user.avatar
   }
 
   onSelectUser(){
@@ -53,11 +74,10 @@ export class UserComponent {
     //dynamically update content using signal
     //set using set() method of the signal
     // this.selectedUserSignal.set(DUMMY_USERS[randomIndex])
-    console.log('Clicked '+this.id)
+    // console.log('Clicked '+this.id)
+    // this.select.emit(this.id)
+    console.log('Clicked '+this.user.id)
 
-
-    this.select.emit(this.id)
-
-
+    this.select.emit(this.user.id)
   }
 }

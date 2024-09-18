@@ -39,6 +39,35 @@ generate component *user* `ng generate component user`
 **union type:** @Input() name:string|undefined; //union type
 
 
+
+[!: vs ?: in typescript](https://stackoverflow.com/questions/63522675/what-is-the-difference-between-and-in-typescript-object-definitions)
+
+[type defination in object literal](https://stackoverflow.com/questions/12787781/type-definition-in-object-literal-in-typescript) typecript allows us to define object types
+
+    @Input({required:true}) user!:{
+      id:String
+      avatar:String
+      name:String
+    }
+
+to create object types we can either use `interface` or `type`. interface approach is more common in angular(with this we can only define type nothing else)
+
+    type User={
+      id:String
+      avatar:String
+      name:String
+    }
+
+    interface User{
+      id:String
+      avatar:String
+      name:String
+    }
+
+`@for` is used for dynamically render list content
+
+we can use `@if` `@else` to dynamically render content
+
 # FirstAngularApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.4.
