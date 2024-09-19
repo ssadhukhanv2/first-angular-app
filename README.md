@@ -68,6 +68,11 @@ to create object types we can either use `interface` or `type`. interface approa
 
 we can use `@if` `@else` to dynamically render content
 
+we can use `[(ngModel)]` directive to implement two way binding 
+
+whenever we import `FormsModule` it automatically allows monitors forms and we can use the `(ngSubmit)` directive to invoke js methods on form submit
+<form (ngSubmit)="onSubmit()">
+
 **conditionally adding css** with class bindings. here `.active` class is added to the `button` when value of `selected` is `true`
     
     <button [class.active]="selected" (click)="onSelectUser()">
