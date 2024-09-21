@@ -73,6 +73,14 @@ we can use `[(ngModel)]` directive to implement two way binding
 whenever we import `FormsModule` it automatically allows monitors forms and we can use the `(ngSubmit)` directive to invoke js methods on form submit
 <form (ngSubmit)="onSubmit()">
 
+
+we can transform data in template with **pipes**. `<time>{{task.dueDate | date:'fullDate'}}</time>`
+
+
+**Content Projection** `<ng-content />` allows us to project content(markups) in side other markups. For example the `app-card` implementation
+
+
+
 **conditionally adding css** with class bindings. here `.active` class is added to the `button` when value of `selected` is `true`
     
     <button [class.active]="selected" (click)="onSelectUser()">
