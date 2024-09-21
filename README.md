@@ -80,6 +80,11 @@ we can define **services** may be **injected** into **components**. `TaskService
 * injection by constructor `constructor(private taskService:TasksService){}`
 * injection using inject `private tasksService=inject(TasksService)`
 
+we can access local storage
+
+    const tasks =localStorage.getItem('tasks')
+    localStorage.setItem('tasks',JSON.stringify(this.tasks))
+
 
 **Content Projection** `<ng-content />` allows us to project content(markups) in side other markups. For example the `app-card` implementation
 
