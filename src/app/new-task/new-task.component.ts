@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Output, signal } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NewTaskData } from './new-task.model';
+import { TasksService } from '../tasks/tasks.service';
 
 @Component({
   selector: 'app-new-task',
@@ -10,8 +11,12 @@ import { NewTaskData } from './new-task.model';
   styleUrl: './new-task.component.css'
 })
 export class NewTaskComponent {
-  @Output() cancel=new EventEmitter<void>();
+  @Output() close=new EventEmitter<void>();
   @Output() add=new EventEmitter<NewTaskData>();
+  @Input({required:true}) userId!:string
+
+
+  private tasksService=inject(TasksService)
 
   // two way binding using signals
   // enteredTitle=signal<string>('')
@@ -22,8 +27,8 @@ export class NewTaskComponent {
   enteredTitle=''
   enteredSummary=''
   enteredDueDate=''
-  onCancel(){
-    this.cancel.emit()
+  onClose(){
+    this.close.emit()
   }
 
 
@@ -33,11 +38,18 @@ export class NewTaskComponent {
   // }
 
  onSubmit(){
-    console.log(this.enteredTitle+"\n"+this.enteredSummary+"\n"+this.enteredDueDate)
-    this.add.emit({
-      title:this.enteredTitle,
-      summary:this.enteredSummary,
-      dueDate:this.enteredDueDate,
-    })
+    this.tasksService.addTask({
+        title:this.enteredTitle,
+        summary:this.enteredSummary,
+        dueDate:this.enteredDueDate
+      },this.userId)
+      this.close.emit()
+
+    // console.log(this.enteredTitle+"\n"+this.enteredSummary+"\n"+this.enteredDueDate)
+    // this.add.emit({
+    //   title:this.enteredTitle,
+    //   summary:this.enteredSummary,
+    //   dueDate:this.enteredDueDate,
+    // })
   }
 }

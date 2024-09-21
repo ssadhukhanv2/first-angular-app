@@ -76,6 +76,10 @@ whenever we import `FormsModule` it automatically allows monitors forms and we c
 
 we can transform data in template with **pipes**. `<time>{{task.dueDate | date:'fullDate'}}</time>`
 
+we can define **services** may be **injected** into **components**. `TaskService`
+* injection by constructor `constructor(private taskService:TasksService){}`
+* injection using inject `private tasksService=inject(TasksService)`
+
 
 **Content Projection** `<ng-content />` allows us to project content(markups) in side other markups. For example the `app-card` implementation
 
