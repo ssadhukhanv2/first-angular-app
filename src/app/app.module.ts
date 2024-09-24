@@ -2,18 +2,15 @@ import { NgModule } from "@angular/core";
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./header/header.component";
 import { UserComponent } from "./user/user.component";
-import { TasksComponent } from "./tasks/tasks.component";
-import { BrowserModule } from "@angular/platform-browser"; // used for module based app to run correctly
-import { CardComponent } from "./shared/card/card.component";
-import { TaskComponent } from "./task/task.component";
+import { BrowserModule } from "@angular/platform-browser"; // used for module based app to run correctly, only imported in root module
 import { FormsModule } from "@angular/forms";
-import { NewTaskComponent } from "./new-task/new-task.component";
 import { SharedModule } from "./shared/shared.module";
+import { TasksModule } from "./tasks/tasks.module";
 
 @NgModule({
-  declarations:[AppComponent,HeaderComponent,UserComponent,TasksComponent,TaskComponent, NewTaskComponent], //can be used for non standalone components
+  declarations:[AppComponent,HeaderComponent,UserComponent], //can be used for non standalone components
   bootstrap: [AppComponent],
-  imports:[BrowserModule, FormsModule,SharedModule] //can be used for standalone components
+  imports:[BrowserModule, FormsModule,SharedModule,TasksModule] //can be used for standalone components
 })
 export class AppModule{
 
