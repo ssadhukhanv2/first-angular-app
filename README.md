@@ -94,6 +94,11 @@ we can access local storage
     
     <button [class.active]="selected" (click)="onSelectUser()">
 
+
+
+
+**Modules** are legacy. We can create module with `@NgModule`. 
+
 # FirstAngularApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.4.
